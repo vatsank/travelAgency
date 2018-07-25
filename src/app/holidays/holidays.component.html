@@ -17,6 +17,8 @@
         </td>
     </tr>
 </table>
+
+<!-- <p>{{weekEndTripList | json}}</p> -->
 <ol>
     <li *ngFor='let eachItem of pickUpPoints'>{{eachItem}}</li>
 </ol>
@@ -24,14 +26,14 @@
     <app-india-tour></app-india-tour>
     <app-asia-tour></app-asia-tour>
 
-    <div class='card-deck'>
-        <div *ngFor='let tour of tours'>
+    <div>
+        <div *ngFor='let tour of tours' class='card-deck'>
             <div *ngFor='let eachTour of tour'>
                 <div class='card'>
-                    <div class="card-header text-center">{{eachTour.tourName}}</div>
-                    <div class="card-img-top center-block"><img [src]="eachTour.image" alt="tourspot"></div>
+                    <div class="card-header text-center">{{eachTour.tourName | uppercase}}</div>
+                    <div class="card-img-top center-block"><img [src]="eachTour.image" alt="tourspot" appResize class="img-thumbnail"></div>
                     <div class="card-body">{{eachTour.description}}</div>
-                    <div class="badge-info text-center">{{eachTour.price}}</div>
+                    <div class="badge-info text-center">{{eachTour.price | currency:'INR':'symbol'}}</div>
                 </div>
 
             </div>

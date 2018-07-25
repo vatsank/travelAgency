@@ -12,6 +12,8 @@ import { Tour } from '../tour';
 })
 export class HolidaysComponent implements OnInit, AfterContentInit {
 
+  
+
   tours = new Array<Tour[]>();
 
 

@@ -1,3 +1,4 @@
+import { TourAdvisorService } from './../tour-advisor.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Tour } from '../tour';
@@ -10,7 +11,8 @@ import { Tour } from '../tour';
 export class IndiaTourComponent implements OnInit {
 
   indianTours: Tour[];
-  constructor() {
+  bestTime: string;
+  constructor(private service: TourAdvisorService) {
 
     this.indianTours = [ 
       {tourName:'Beautiful Kashmir', 
@@ -25,11 +27,15 @@ export class IndiaTourComponent implements OnInit {
 
   ngOnInit() {
 
+       this.service.myadvice.subscribe(value =>{
+          this.bestTime = value;
+
+       });
+     
   }
 
     getIndianTours() {
        return this.indianTours;
     }
-
 
 }

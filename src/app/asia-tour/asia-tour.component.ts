@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TourAdvisorService } from '../tour-advisor.service';
 
 @Component({
   selector: 'app-asia-tour',
@@ -8,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class AsiaTourComponent implements OnInit {
   asiaTour: { tourName: string; description: string; image: string; price: number; }[];
 
-  constructor() { 
+  constructor(private service: TourAdvisorService) { 
 
-  this.asiaTour = [ 
+  this.asiaTour = [
     {tourName:'Singapore', 
     description: 'Shopping Malls of Singapore',
     image: 'assets/images/singapore.jpg', price: 75000},
@@ -23,10 +24,15 @@ export class AsiaTourComponent implements OnInit {
 
 ngOnInit() {
 
+ 
 }
 
   getAsiaTours() {
      return this.asiaTour;
   }
 
+   suggest(){
+
+    this.service.changeAdvice('Best Time to visit Asian Countries - Aug-Dec');
+   }
 }
