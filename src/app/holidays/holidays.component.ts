@@ -12,6 +12,7 @@ export class HolidaysComponent implements OnInit {
   weekEndTripList: Weekendtrip[];
   pickUpPoints: string[];
   qty = 1;
+  response: any;
   constructor(private service: ShowtripsService) { }
 
   ngOnInit() {
@@ -29,6 +30,12 @@ export class HolidaysComponent implements OnInit {
     //     console.log(resp.status);
     //     console.log(resp.headers.get('content-type'));
     // });
+  }
+
+  onChange(val) {
+
+    this.response = val;
+
   }
 
   show(destination) {

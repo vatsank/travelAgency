@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HolidaysComponent } from './holidays/holidays.component';
 import { ListComponent } from './list/list.component';
+import { ProcessOrderComponent } from './process-order/process-order.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ListComponent } from './list/list.component';
     HeaderComponent,
     FooterComponent,
     HolidaysComponent,
-    ListComponent
+    ListComponent,
+    ProcessOrderComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule

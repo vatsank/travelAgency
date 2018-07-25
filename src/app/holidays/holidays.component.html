@@ -12,8 +12,9 @@
 
 
 <div class='form-group form-inline'>
-    <label>Dinner Order - Qty</label>
+    <label class='label-info'>Dinner Order - Qty</label>
 
     <input type='number' name='qty' [(ngModel)]='qty' class="form-control" max='10' min='1'>
-    <span> {{qty}} Dinner Will be Served on Board</span>
+    <app-process-order [reqQty]='qty' (replyEvent)='onChange($event)'></app-process-order>
+    <span [ngStyle]="{'margin-left' : '15px'} ">{{response}}</span>
 </div>
