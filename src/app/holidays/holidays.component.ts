@@ -10,6 +10,8 @@ import { ShowtripsService } from '../showtrips.service';
 export class HolidaysComponent implements OnInit {
 
   weekEndTripList: Weekendtrip[];
+  pickUpPoints: string[];
+  qty = 1;
   constructor(private service: ShowtripsService) { }
 
   ngOnInit() {
@@ -29,4 +31,13 @@ export class HolidaysComponent implements OnInit {
     // });
   }
 
+  show(destination) {
+
+    if ( destination === 'vijayawada'){
+     this.pickUpPoints = ['Miyapur', 'Lingampally', 'Hitech'];
+     } else {
+      this.pickUpPoints = ['JNTU', 'DilsukhNagar', 'Madhapur'];
+
+     }
+  }
 }

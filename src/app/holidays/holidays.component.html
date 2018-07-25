@@ -3,5 +3,17 @@
         <td>{{eachTrip.src}}</td>
         <td>{{eachTrip.destination}}</td>
         <td>{{eachTrip.fare}}</td>
+        <td><button (click)='show(eachTrip.destination)' class='btn btn-info'>Show PickUp Points</button></td>
     </tr>
 </table>
+<ol>
+    <li *ngFor='let eachItem of pickUpPoints'>{{eachItem}}</li>
+</ol>
+
+
+<div class='form-group form-inline'>
+    <label>Dinner Order - Qty</label>
+
+    <input type='number' name='qty' [(ngModel)]='qty' class="form-control" max='10' min='1'>
+    <span> {{qty}} Dinner Will be Served on Board</span>
+</div>

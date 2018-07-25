@@ -1,8 +1,17 @@
-<h4>Partners</h4>
-<ul class='list-group'>
-    <li class='list-group-item list-group-item-success'>{{partners[0]}}</li>
-    <li class='list-group-item list-group-item-success'>{{partners[1]}}</li>
-    <li class='list-group-item list-group-item-success'>{{partners[2]}}</li>
-    <li class='list-group-item list-group-item-success'>{{partners[3]}}</li>
+<div class="container">
 
-</ul>
+    <div class='row'>
+
+        <div class='col-md-6'>
+            <h4>Partners</h4>
+            <app-list [listItems]='partners'></app-list>
+        </div>
+
+        <div class='col-md-6'>
+            <h4>Social Media</h4>
+            <app-list [listItems]='social'></app-list>
+        </div>
+
+    </div>
+
+</div>

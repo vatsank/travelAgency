@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   partners: string[];
+  social: string[];
+  
   constructor() {
 
     this.partners = ['Uber', 'Taj Hotel', 'NDTV' , 'IndiGo'];
+    this.social = ['instagram', 'FaceBook', 'Twitter','Whatsapp'];
   }
 
   ngOnInit() {
