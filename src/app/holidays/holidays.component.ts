@@ -1,19 +1,38 @@
+import { AsiaTourComponent } from './../asia-tour/asia-tour.component';
+import { IndiaTourComponent } from './../india-tour/india-tour.component';
 import { Weekendtrip } from './../weekendtrip';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
 import { ShowtripsService } from '../showtrips.service';
+import { Tour } from '../tour';
 
 @Component({
   selector: 'app-holidays',
   templateUrl: './holidays.component.html',
   styleUrls: ['./holidays.component.css'],
 })
-export class HolidaysComponent implements OnInit {
+export class HolidaysComponent implements OnInit, AfterContentInit {
+
+  tours = new Array<Tour[]>();
+
 
   weekEndTripList: Weekendtrip[];
   pickUpPoints: string[];
   qty = 1;
   response: any;
+  @ViewChild(IndiaTourComponent) indiaTour: IndiaTourComponent;
+  @ViewChild(AsiaTourComponent) asiaTour: AsiaTourComponent;
+
+
   constructor(private service: ShowtripsService) { }
+
+  ngAfterContentInit(): void {
+
+
+    this.tours.push(this.indiaTour.getIndianTours());
+
+    this.tours.push(this.asiaTour.getAsiaTours());
+
+   }
 
   ngOnInit() {
 

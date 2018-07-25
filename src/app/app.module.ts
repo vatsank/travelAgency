@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HolidaysComponent } from './holidays/holidays.component';
 import { ListComponent } from './list/list.component';
 import { ProcessOrderComponent } from './process-order/process-order.component';
+import { AsiaTourComponent } from './asia-tour/asia-tour.component';
+import { IndiaTourComponent } from './india-tour/india-tour.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ProcessOrderComponent } from './process-order/process-order.component';
     FooterComponent,
     HolidaysComponent,
     ListComponent,
-    ProcessOrderComponent
+    ProcessOrderComponent,
+    AsiaTourComponent,
+    IndiaTourComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule

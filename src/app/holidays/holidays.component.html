@@ -4,17 +4,37 @@
         <td>{{eachTrip.destination}}</td>
         <td>{{eachTrip.fare}}</td>
         <td><button (click)='show(eachTrip.destination)' class='btn btn-info'>Show PickUp Points</button></td>
+        <td>
+            <div class='form-group form-inline'>
+                <label class='label-info'>Dinner Order - Qty</label>
+
+                <input type='number' name='qty' [(ngModel)]='qty' class="form-control" max='10' min='1'>
+
+                <app-process-order [reqQty]='qty' (replyEvent)='onChange($event)'></app-process-order>
+
+                <span [ngStyle]="{'margin-left' : '15px'} ">{{response}}</span>
+            </div>
+        </td>
     </tr>
 </table>
 <ol>
     <li *ngFor='let eachItem of pickUpPoints'>{{eachItem}}</li>
 </ol>
+<div>
+    <app-india-tour></app-india-tour>
+    <app-asia-tour></app-asia-tour>
 
+    <div class='card-deck'>
+        <div *ngFor='let tour of tours'>
+            <div *ngFor='let eachTour of tour'>
+                <div class='card'>
+                    <div class="card-header text-center">{{eachTour.tourName}}</div>
+                    <div class="card-img-top center-block"><img [src]="eachTour.image" alt="tourspot"></div>
+                    <div class="card-body">{{eachTour.description}}</div>
+                    <div class="badge-info text-center">{{eachTour.price}}</div>
+                </div>
 
-<div class='form-group form-inline'>
-    <label class='label-info'>Dinner Order - Qty</label>
-
-    <input type='number' name='qty' [(ngModel)]='qty' class="form-control" max='10' min='1'>
-    <app-process-order [reqQty]='qty' (replyEvent)='onChange($event)'></app-process-order>
-    <span [ngStyle]="{'margin-left' : '15px'} ">{{response}}</span>
+            </div>
+        </div>
+    </div>
 </div>
