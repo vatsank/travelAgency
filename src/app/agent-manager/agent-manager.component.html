@@ -1,0 +1,28 @@
+<h2 class="text-center">Agent Details</h2>
+<div class='form-inline'>
+    <label>Search by Name</label>
+    <!-- <button type="button" class="btn">
+       <span class='glyphicon glyphicon-search'></span></button> -->
+    <input type='text' [(ngModel)]="qryString">
+</div>
+<table class="table table-striped">
+    <tr>
+        <th>Agent Name</th>
+        <th>Location</th>
+        <th>Mobile Phone</th>
+    </tr>
+    <tr *ngFor="let eachAgent of agentList | filter :'mobileNumber':qryString">
+        <td>{{eachAgent.name}}</td>
+        <td>{{eachAgent.location}}</td>
+        <td>{{eachAgent.mobileNumber}}</td>
+        <td><button (click)="showDetails(eachAgent.name)">Show Reviews</button>
+        </td>
+    </tr>
+
+</table>
+
+<div #placeHolder>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam facere unde quaerat quo, nemo similique cumque aspernatur fugiat ad debitis ipsam optio suscipit repellendus officiis accusantium dignissimos neque voluptatem ipsum.
+</div>
+
+{{reviews}}

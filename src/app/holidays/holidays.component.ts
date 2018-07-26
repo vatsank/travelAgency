@@ -15,7 +15,7 @@ export class HolidaysComponent implements OnInit, AfterContentInit {
   
 
   tours = new Array<Tour[]>();
-
+  hide = true;
 
   weekEndTripList: Weekendtrip[];
   pickUpPoints: string[];
@@ -58,9 +58,13 @@ export class HolidaysComponent implements OnInit, AfterContentInit {
     this.response = val;
 
   }
+  control(){
 
+    
+  }
   show(destination) {
 
+    this.hide = false;
     if ( destination === 'vijayawada'){
      this.pickUpPoints = ['Miyapur', 'Lingampally', 'Hitech'];
      } else {

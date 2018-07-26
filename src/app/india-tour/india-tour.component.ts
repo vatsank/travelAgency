@@ -21,8 +21,15 @@ export class IndiaTourComponent implements OnInit {
 
       {tourName:'Beaches of Andaman', description: 'Lovely Beaches and Islands',
       image: 'assets/images/andaman.jpg', price: 55000},
+      {tourName:'Divine Vaishnodevi', 
+      description: 'Lakes and Garden in Kashmir',
+      image: 'assets/images/vaishnodevi.jpg', price: 25000},
+      {tourName:'Tirupathi Balaji', 
+      description: 'Lakes and Garden in Kashmir',
+      image: 'assets/images/tirupathi.jpg', price: 15000},
 
     ];
+
    }
 
   ngOnInit() {
