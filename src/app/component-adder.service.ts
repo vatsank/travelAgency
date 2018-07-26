@@ -27,8 +27,7 @@ export class ComponentAdderService {
      const component = this.factory.create(this.viewContainer.parentInjector);
  
         this.agentService.findReviews(name).subscribe(
-          data =>
-          (<AgentReviewComponent>component.instance).reviews = data   );
+          data => (<AgentReviewComponent>component.instance).reviews = data  );
 
             this.viewContainer.insert(component.hostView);
     }

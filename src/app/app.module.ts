@@ -38,6 +38,6 @@ import { AgentReviewComponent } from './agent-review/agent-review.component';
   ],
   providers: [HttpClient],
   entryComponents: [AgentReviewComponent],
-  bootstrap: [AgentManagerComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
