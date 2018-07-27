@@ -15,6 +15,7 @@ export class AdventureComponent implements OnInit , OnDestroy{
   subs: Subscription;
 
   places: Map<string, string> ;
+
   constructor(private route: ActivatedRoute, private router: Router) {
 
     this.places = new Map<string, string>();
@@ -22,9 +23,7 @@ export class AdventureComponent implements OnInit , OnDestroy{
     this.places.set('hills', 'Nice Place for trekking');
 
   }
-
   ngOnInit() {
-
     this.subs =  this.route.params.subscribe(routParam => {
       this.val = routParam['code'];
     if (this.val !== undefined)  {

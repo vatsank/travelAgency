@@ -8,9 +8,10 @@
 
     <div class="form-group row">
         <label for="name">Name</label>
-        <input type="text" name="name" [ngModel]='agent.name' required class="form-control">
+        <div class="col-sm-10">
+            <input type="text" name="name" [ngModel]='agent.name' required class="form-control">
+        </div>
     </div>
-
     <div class="form-group row">
         <label for="location">Location</label>
         <input type="text" name="location" [ngModel]='agent.location' class="form-control">
@@ -21,7 +22,10 @@
     </div>
 
     <div>
-        <input type="submit" value="Add" [disabled]="frm.invalid" class="btn btn-danger">
+        <input type="submit" [value]='buttonStatus' [disabled]="frm.invalid" class="btn btn-danger">
+
+        <input type="reset" value='Discard' class="btn btn-danger" *ngIf="showDiscard" (click)='reset()'>
+
     </div>
 </form>
 <h2 class="text-center">
@@ -39,6 +43,9 @@
         <th>Location</th>
         <th>Mobile Phone</th>
         <th>Details</th>
+        <th>Details</th>
+        <th>Details</th>
+
     </tr>
     <tr *ngFor="let eachAgent of agentList | filter :'mobileNumber':qryString">
         <td>{{eachAgent.name}}</td>
@@ -46,8 +53,15 @@
         <td>{{eachAgent.mobileNumber}}</td>
         <td>
             <button (click)="showDetails(eachAgent.name)">Show Reviews</button>
-
         </td>
+
+        <td>
+            <button (click)="edit(eachAgent)">Edit</button>
+        </td>
+        <td>
+            <button (click)="remove(eachAgent)">Delete</button>
+        </td>
+
     </tr>
 
 </table>

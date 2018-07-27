@@ -9,11 +9,13 @@ export class HeaderComponent implements OnInit {
   currentDate = new Date();
   logo: string;
   rightLogo: string;
+  logOutStatus = true;
   title = 'Sri Tours and Travels';
   constructor() {
       this.logo = 'assets/images/logo.jpg';
       this.rightLogo = 'assets/images/rightLogo.jpg';
     console.log('Header component initlized');
+
   }
 
   ngOnInit() {
@@ -21,5 +23,8 @@ export class HeaderComponent implements OnInit {
     console.log('Header component Ng On Init Called');
 
   }
+  logOut(){
 
+    sessionStorage.removeItem('isUserLogged');
+  }
 }

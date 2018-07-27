@@ -3,6 +3,7 @@ import { TravelAgent } from './../travel-agent';
 import { AgentApiService } from './../agent-api.service';
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { AgentReviewComponent } from '../agent-review/agent-review.component';
+import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-agent-manager',
@@ -12,8 +13,11 @@ import { AgentReviewComponent } from '../agent-review/agent-review.component';
 export class AgentManagerComponent implements OnInit {
   agentList: TravelAgent[];
   qryString: number;
-
-
+  buttonStatus = 'Add';
+  showDiscard = false;
+  isEdit = false;
+  toEdit:TravelAgent;
+  @ViewChild('#frm') frmRef: any;
   @ViewChild('placeHolder', {read: ViewContainerRef})
                viewRef: ViewContainerRef;
   agent: TravelAgent = {
@@ -22,6 +26,7 @@ export class AgentManagerComponent implements OnInit {
     location: '',
     mobileNumber: 0
   };
+  editPox: number;
 
   constructor(private service: AgentApiService,private adderService: ComponentAdderService) { }
 
@@ -44,7 +49,32 @@ export class AgentManagerComponent implements OnInit {
 
    submit(frmData) {
      this.agent = frmData;
-
-       this.service.addAgent(this.agent).subscribe(resp => { this.fetch(); console.log(resp)});
+   
+     if (this.isEdit){
+       this.toEdit = frmData;
+     this.agentList.splice(this.editPox, 0, this.toEdit);
+       console.log(this.toEdit);
+     }
+      // this.service.addAgent(this.agent).subscribe(resp => { this.fetch(); console.log(resp)});
     }
+
+    remove(trvlAgent){
+     
+      this.service.removeAgent(trvlAgent.id).subscribe(resp=> console.log(resp));
+    }
+    edit(trvlAgent){
+     this.toEdit = trvlAgent;
+     this.editPox = this.agentList.indexOf(this.toEdit);
+     
+      this.buttonStatus = 'Edit';
+      this.isEdit = true;
+      this.showDiscard = true;
+      this.agent = trvlAgent;
+    }
+
+    reset(){
+
+      this.frmRef.reset();
+    }
+
 }

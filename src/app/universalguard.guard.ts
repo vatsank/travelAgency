@@ -16,9 +16,11 @@ export class UniversalguardGuard implements CanActivate , CanDeactivate<{}> {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot):  boolean {
-     
+
+     const status = sessionStorage.getItem('isUserLogged');
+
       const url = state.url;
-     if (url !== '/agent') {
+     if (url !== '/agent' && status  ==='true') {
         return true;
        } else {
        return false;

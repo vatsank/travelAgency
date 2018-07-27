@@ -30,7 +30,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'holidays', component: HolidaysComponent, canActivate: [UniversalguardGuard], 
                           canDeactivate: [UniversalguardGuard] },
-  {path: 'agent', component: AgentManagerComponent, canActivate: [UniversalguardGuard]},
+  {path: 'agent', component: AgentManagerComponent},
   {path: 'packages', component: PackagesComponent,
                canActivate: [UniversalguardGuard], children: [
 
