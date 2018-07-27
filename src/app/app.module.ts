@@ -1,3 +1,6 @@
+import { DivineComponent } from './divine/divine.component';
+import { HeritageComponent } from './heritage/heritage.component';
+import { AdventureComponent } from './adventure/adventure.component';
 import { UniversalguardGuard } from './universalguard.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -21,13 +24,22 @@ import { AgentReviewComponent } from './agent-review/agent-review.component';
 import { LoginComponent } from './login/login.component';
 import { PackagesComponent } from './packages/packages.component';
 
+
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'holidays', component: HolidaysComponent, canActivate: [UniversalguardGuard], 
                           canDeactivate: [UniversalguardGuard] },
   {path: 'agent', component: AgentManagerComponent, canActivate: [UniversalguardGuard]},
-  {path: 'packages', component: PackagesComponent, canActivate: [UniversalguardGuard]},
+  {path: 'packages', component: PackagesComponent,
+               canActivate: [UniversalguardGuard], children: [
+
+    {path: 'adventure', component: AdventureComponent },
+    {path: 'adventure/:code', component: AdventureComponent },
+    {path: 'heritage', component: HeritageComponent },
+    {path: 'divine', component: DivineComponent },
+  ]},
+
   {path: '**', redirectTo: 'holidays'}
 ];
 @NgModule({
@@ -46,7 +58,10 @@ const routes: Routes = [
     FilterPipe,
     AgentReviewComponent,
     LoginComponent,
-    PackagesComponent
+    PackagesComponent,
+    AdventureComponent,
+    HeritageComponent,
+    DivineComponent
   ],
 
   imports: [
