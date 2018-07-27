@@ -7,4 +7,5 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
  
+  link1 = 'assets/images/divine.jpg';
 }

@@ -1,11 +1,17 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-    <h1 class="heading">
-
-    </h1>
-</div>
-
 <app-header></app-header>
-<app-holidays></app-holidays>
-<app-agent-manager></app-agent-manager>
+<nav>
+    <ul>
+        <li>
+            <a [routerLink]="['/holidays']">Holidays</a>
+        </li>
+        <li>
+            <a [routerLink]="['/agent']">Agent</a>
+        </li>
+        <li>
+            <a [routerLink]="['/packages']">Packages</a>
+        </li>
+    </ul>
+</nav>
+
+<router-outlet></router-outlet>
 <app-footer></app-footer>

@@ -1,7 +1,9 @@
+import { UniversalguardGuard } from './universalguard.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule , ReactiveFormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,7 +18,18 @@ import { ResizeDirective } from './resize.directive';
 import { AgentManagerComponent } from './agent-manager/agent-manager.component';
 import { FilterPipe } from './filter.pipe';
 import { AgentReviewComponent } from './agent-review/agent-review.component';
+import { LoginComponent } from './login/login.component';
+import { PackagesComponent } from './packages/packages.component';
 
+const routes: Routes = [
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'holidays', component: HolidaysComponent, canActivate: [UniversalguardGuard], 
+                          canDeactivate: [UniversalguardGuard] },
+  {path: 'agent', component: AgentManagerComponent, canActivate: [UniversalguardGuard]},
+  {path: 'packages', component: PackagesComponent, canActivate: [UniversalguardGuard]},
+  {path: '**', redirectTo: 'holidays'}
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,10 +44,13 @@ import { AgentReviewComponent } from './agent-review/agent-review.component';
     ResizeDirective,
     AgentManagerComponent,
     FilterPipe,
-    AgentReviewComponent
+    AgentReviewComponent,
+    LoginComponent,
+    PackagesComponent
   ],
+
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule
+    BrowserModule, RouterModule.forRoot(routes), HttpClientModule, FormsModule, ReactiveFormsModule
   ],
   providers: [HttpClient],
   entryComponents: [AgentReviewComponent],

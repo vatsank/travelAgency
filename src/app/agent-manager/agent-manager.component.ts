@@ -13,16 +13,27 @@ export class AgentManagerComponent implements OnInit {
   agentList: TravelAgent[];
   qryString: number;
 
+
   @ViewChild('placeHolder', {read: ViewContainerRef})
                viewRef: ViewContainerRef;
+  agent: TravelAgent = {
+    id: 0,
+    name: '',
+    location: '',
+    mobileNumber: 0
+  };
+
   constructor(private service: AgentApiService,private adderService: ComponentAdderService) { }
 
   ngOnInit() {
 
-    this.service.findAllAgents().
-        subscribe(data => this.agentList = data);
+   this.fetch();
   }
 
+   fetch() {
+    this.service.findAllAgents().
+    subscribe(data => this.agentList = data);
+   }
    showDetails(name) {
 
      this.adderService.setViewContainer(this.viewRef);
@@ -30,4 +41,10 @@ export class AgentManagerComponent implements OnInit {
 
 
    }
+
+   submit(frmData) {
+     this.agent = frmData;
+
+       this.service.addAgent(this.agent).subscribe(resp => { this.fetch(); console.log(resp)});
+    }
 }

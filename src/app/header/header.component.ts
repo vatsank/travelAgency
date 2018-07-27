@@ -11,8 +11,8 @@ export class HeaderComponent implements OnInit {
   rightLogo: string;
   title = 'Sri Tours and Travels';
   constructor() {
-      this.logo = '../assets/images/logo.jpg';
-      this.rightLogo = '../assets/images/rightLogo.jpg';
+      this.logo = 'assets/images/logo.jpg';
+      this.rightLogo = 'assets/images/rightLogo.jpg';
     console.log('Header component initlized');
   }
 

@@ -18,7 +18,7 @@ export class ComponentAdderService {
      this.viewContainer = viewContainer;
    }
 
-   addComponent(compToAdd: any, name:string) {
+   addComponent(compToAdd: any, name: string) {
 
     this.viewContainer.clear();
   
