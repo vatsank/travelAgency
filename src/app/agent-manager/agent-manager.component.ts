@@ -53,10 +53,11 @@ export class AgentManagerComponent implements OnInit {
      if (this.isEdit){
        this.toEdit = frmData;
      this.agentList.splice(this.editPox, 0, this.toEdit);
-       console.log(this.toEdit);
-     }
+      
+     } else {
       // this.service.addAgent(this.agent).subscribe(resp => { this.fetch(); console.log(resp)});
     }
+  }
 
     remove(trvlAgent){
      
