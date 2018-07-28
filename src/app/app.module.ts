@@ -23,6 +23,7 @@ import { FilterPipe } from './filter.pipe';
 import { AgentReviewComponent } from './agent-review/agent-review.component';
 import { LoginComponent } from './login/login.component';
 import { PackagesComponent } from './packages/packages.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -61,7 +62,8 @@ const routes: Routes = [
     PackagesComponent,
     AdventureComponent,
     HeritageComponent,
-    DivineComponent
+    DivineComponent,
+    RegisterComponent
   ],
 
   imports: [
@@ -69,6 +71,6 @@ const routes: Routes = [
   ],
   providers: [HttpClient],
   entryComponents: [AgentReviewComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent , RegisterComponent]
 })
 export class AppModule { }
