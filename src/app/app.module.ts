@@ -29,7 +29,7 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'holidays', component: HolidaysComponent, canActivate: [UniversalguardGuard], 
+  {path: 'holidays', component: HolidaysComponent, canActivate: [UniversalguardGuard],
                           canDeactivate: [UniversalguardGuard] },
   {path: 'agent', component: AgentManagerComponent},
   {path: 'packages', component: PackagesComponent,

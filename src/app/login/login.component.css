@@ -1,0 +1,13 @@
+.input-icon {
+    position: absolute;
+    left: 3px;
+    top: calc(50% - 0.5em);
+}
+
+input {
+    padding-left: 17px;
+}
+
+.input-wrapper {
+    position: relative;
+}
